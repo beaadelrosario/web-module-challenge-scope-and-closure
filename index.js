@@ -1,5 +1,5 @@
 // ⭐️ Example Challenge START ⭐️
-
+console.log ('testing');
 /**
  * ### Challenge `processFirstItem`
  * 
@@ -27,8 +27,13 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+
+ BEA: the variable let count is declared inside of the function counterMaker whereas counter2, the variable let count is declared globally.
+ 
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * 
+ * BEA: counter 1 because there is a function inside of the function
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  *

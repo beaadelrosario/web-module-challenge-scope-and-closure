@@ -42,6 +42,9 @@ Find the file `index.js` and complete the tasks.
 Edit the `ReadMe` file with your answers.
 
 1. In your own words, define closure (1-2 sentences).
+
+  BEA: A closure is the combination of a function bundled together (enclosed) with references to its surrounding state. In other words, a closure gives you access to an outer function’s scope from an inner function. 
+
 2. Study the following code, then answer the questions below.
 
 ```js
@@ -63,8 +66,21 @@ dansRoll();
 ```
 
 a. Where is closure used in this code? How can you tell?
+
+  BEA: Closure is the inner function of function-personalDice
+
 b. Compare and contrast calling `dansRoll` the first and second time. What is always the same? What could change?
+
+  BEA: calling dansRoll twice: the name is always the same and the num could change since we're using Math.random.
+
 c. What is the lexical scope of `newRoll`? 
+
+  BEA: 
+  return function(){
+    const newRoll = Math.floor(Math.random() * 6);
+    console.log(`${name} rolled a ${newRoll}`)
+  }
+
 
 ### Task 2c - Exit Ticket
 
