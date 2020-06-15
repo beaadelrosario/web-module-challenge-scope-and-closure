@@ -28,15 +28,20 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
 
- BEA: the variable let count is declared inside of the function counterMaker whereas counter2, the variable let count is declared globally.
- 
+ * BEA: Counter 1 is function scoped: the variable 'let count' is declared inside of the 'function counterMaker'
+ * The variable 'const counter1' is declared after the function. Counter1 is hoisted.
+ * whereas counter2, the variable 'let count' is declared globally. Counter2 is not hosited and couldn't be used anywhere else in the file.
+ * 
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
- * BEA: counter 1 because there is a function inside of the function
+ * BEA: They both use a closure - both refrencing variables in their scope whether inside or outside the function. I definitely think
+ * Counter1 is a closure because there is a function inside of the function. 
+ * 
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * BEA: counter1 is preferable because the function is declared first. counter2 is preferable when you want to use that function one time?
+ * and/or to see if you used that variable before.
 */
 
 // counter1 code
@@ -61,11 +66,11 @@ function counter2() {
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  return Math.round(Math.random() * 2);
 }
+
+console.log (inning());
 
 /* Task 3: finalScore()
 
@@ -81,11 +86,12 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
+function finalScore(inning, numofInnings){
 
-  /*Code Here*/
 
 }
+
+finalScore (inning, 9);
 
 /* Task 4: 
 
