@@ -1,5 +1,5 @@
 // ⭐️ Example Challenge START ⭐️
-
+console.log ('testing');
 /**
  * ### Challenge `processFirstItem`
  * 
@@ -27,11 +27,21 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
+
+ * BEA: Counter 1 is function scoped: the variable 'let count' is declared inside of the 'function counterMaker'
+ * The variable 'const counter1' is declared after the function. Counter1 is hoisted.
+ * whereas counter2, the variable 'let count' is declared globally. Counter2 is not hosited and couldn't be used anywhere else in the file.
+ * 
  * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ * BEA: They both use a closure - both refrencing variables in their scope whether inside or outside the function. I definitely think
+ * Counter1 is a closure because there is a function inside of the function. 
+ * 
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * BEA: counter1 is preferable because the function is declared first. counter2 is preferable when you want to use that function one time?
+ * and/or to see if you used that variable before.
 */
 
 // counter1 code
@@ -52,15 +62,19 @@ function counter2() {
 }
 
 
-/* Task 2: inning() 
+/* Task 2: inning()  c=
 
-Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
+Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. 
 
-function inning(/*Code Here*/){
+function inning generates a random number [whole number between 0 and 2] of points that a team scored in an inning */
 
-    /*Code Here*/
+console.log ("Task 2");
 
+function inning(){
+  return Math.round(Math.random() * 2);
 }
+
+console.log (inning());
 
 /* Task 3: finalScore()
 
@@ -74,13 +88,26 @@ finalScore(inning, 9) might return:
   "Away": 5,
 }
 
+function finalScore (inning, num) returns the final score of the game in the form of an object {}
+to get the final score, add up each teams scores per inning
+
 */ 
 
-function finalScore(/*code Here*/){
+console.log ("Task 3");
 
-  /*Code Here*/
+function finalScore(inning, numofInnings){
+ let final = {Home:0 , Away:0};
 
+ for (let i = 1; i < numofInnings + 1; i++) {
+   console.log(i);
+   final.Home = final.Home + inning();
+   final.Away = final.Away + inning();
+ } // for number of points per inning, add the to get the final score
+return final;
 }
+
+console.log (finalScore(inning,9));
+
 
 /* Task 4: 
 
@@ -101,10 +128,26 @@ and returns the score at each pont in the game, like so:
 8th inning: 5 - 8
 9th inning: 6 - 10
 
-Final Score: 6 - 10 */
+Final Score: 6 - 10 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+
+function scoreboard (inning, num) returns the score at each inning in the game for both teams */
+
+console.log ("Task 4");
+
+function scoreboard(inning,num) {
+  const finalGame =[];
+  let homeScore = 0;
+  let awayScore = 0;
+
+  for (let i = 1; i <= num; i++) {
+   homeScore = homeScore + inning(); // these assign values/equations to each of their values and uses the Math.random/inning func. from above - random number = 0
+   awayScore = awayScore + inning();
+    finalGame.push(`${i} inning: ${homeScore} - ${awayScore}`) // final.Game is the empyty array and we're pushing the string ' X inning: home: Y - away: Z '
+  }
+  finalGame.push (`Final Score:' ${homeScore} - ${awayScore}`) // returning the array 'Final score: home: Y - away: Z'
+  return finalGame;
 }
 
+console.log(scoreboard(inning,9)); // logs the scoreboard array of all 9 innings
 
